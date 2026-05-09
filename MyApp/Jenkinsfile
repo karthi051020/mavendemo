@@ -36,14 +36,10 @@ pipeline {
 
     post {
         success {
-            mail to: 'kkarthi1605email.com',
-                 subject: "✅ SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                 body: "Build passed. URL: ${env.BUILD_URL}"
+            echo '✅ Build Successful!'
         }
         failure {
-            mail to: 'kkarthi1605@email.com',
-                 subject: "❌ FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                 body: "Build failed. URL: ${env.BUILD_URL}"
+            echo '❌ Build Failed!'
         }
         always {
             cleanWs()
